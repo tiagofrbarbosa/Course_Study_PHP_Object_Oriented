@@ -2,23 +2,13 @@
 include("logica-usuario.php");
 ?>
 
-<?php 
-		if(isset($_GET["login"]) && $_GET["login"] == true) {?>
-			<p class="alert-success">Logado com sucesso!</p>
-			<?php } ?>
-<?php
-		if(isset($_GET["login"]) && $_GET["login"] == false) {?>
-			<p class="alert-danger">Erro ao logar!</p>
-			<?php } ?>
 
-<?php if (isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"] ==true) { ?>
-			<p class="alert-danger">Você não tem acesso a essa funcionalidade!</p>
-			<?php } ?>
+
 
 		<h1>Bem vindo!</h1>
 		<?php
 			if (usuarioEstaLogado()) { ?>
-			<p class="text-success">Você está logado como<?= usuarioLogado() ?></p>
+			<p class="text-success">Você está logado como<?= usuarioLogado() ?><a href="logout.php"> Deslogar</a></p>
 			<?php }else{ ?>
 
 		<h2>Login</h2>
