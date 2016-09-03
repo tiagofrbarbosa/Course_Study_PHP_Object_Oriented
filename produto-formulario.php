@@ -1,12 +1,10 @@
 <?php
-
-	include("cabecalho.php"); 
-	include("conecta.php");
-	include("banco-categoria.php");
-
-	include("logica-usuario.php");
+	require_once("cabecalho.php"); 
+	require_once("banco-categoria.php");
+	require_once("logica-usuario.php");
 verificaUsuario();
-
+$produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
+$usado = "";
 	$categorias = listaCategorias($conexao);
 ?>
 	<h1>Formulário de cadastro</h1>
@@ -14,35 +12,7 @@ verificaUsuario();
 
 <table class="table">
 
-<tr>
-<td>Nome: </td>
-<td><input class="form-control" type="text" name="nome" /></td>
-</tr>
-
-<tr>
-<td>Preço:</td>
-<td><input class="form-control" type="number" name="preco" /></td>
-</tr>
-
-<tr>
-	<td>Descrição</td>
-	<td><textarea name="descricao" class="form-control"></textarea></td>
-</tr>
-
-<tr>
-		<td></td>
-		<td><input type="checkbox" name="usado" value="true"> Usado </td>
-</tr>
-
-<tr>
-	<td>Categoria</td>
-	<td>
-		<select name="categoria_id" class="form-control">
-		<?php foreach ($categorias as $categoria) : ?>
-		<option value="<?=$categoria['id']?>"><?=$categoria['nome'] ?></option>
-		<?php endforeach ?>
-	</td>
-</tr>
+<?php include("produto-formulario-base.php"); ?>
 
 <tr>
 <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
