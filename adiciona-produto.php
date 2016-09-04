@@ -11,25 +11,25 @@ verificaUsuario();
 $produto = new Produto();
 $categoria = new Categoria();
 
-$produto->nome = $_POST["nome"];
-$produto->preco = $_POST["preco"];
-$produto->descricao = $_POST['descricao'];
-$categoria->id = $_POST['categoria_id'];
-$produto->categoria = $categoria;
+$produto->setNome($_POST["nome"]);
+$produto->setPreco($_POST["preco"]);
+$produto->setDescricao($_POST['descricao']);
+$categoria->setId($_POST['categoria_id']);
+$produto->setCategoria($categoria);
 
 if(array_key_exists('usado', $_POST)){
-	$produto->usado = "true";
+	$produto->setUsado("true");
 }else{
-	$produto->usado = "false";
+	$produto->setUsado("false");
 
 }
 
 if(insereProduto($conexao,$produto)){ ?>
-	<p class="text-success"> Produto <?= $produto->nome; ?>, <?= $produto->preco; ?> adicionado com sucesso! </p>
+	<p class="text-success"> Produto <?= $produto->getNome(); ?>, <?= $produto->setPreco(); ?> adicionado com sucesso! </p>
 <?php }else{ 
 		$msg = mysqli_error($conexao);
 	?>
-    <p class="text-danger"> O Produto <?= $produto->nome; ?> não foi adicionado! erro: <?= $msg ?></p>	
+    <p class="text-danger"> O Produto <?= $produto->setNome(); ?> não foi adicionado! erro: <?= $msg ?></p>	
 <?php
 }
 
