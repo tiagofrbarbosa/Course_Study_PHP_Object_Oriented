@@ -4,8 +4,7 @@
 </tr>
 <tr>
     <td>Preço</td>
-    <td><input  class="form-control" type="number" name="preco" 
-        value="<?=$produto->getPreco()?>"></td>
+    <td><input  class="form-control" type="number" name="preco" value="<?=$produto->getPreco()?>"></td>
 </tr>
 <tr>
     <td>Descrição</td>
@@ -13,14 +12,14 @@
 </tr>
 <tr>
     <td></td>
-    <td><input type="checkbox" name="usado" <?=$produto->getUsado()?> value="true"> Usado
+    <td><input type="checkbox" name="usado" <?=$produto->isUsado()?> value="true"> Usado
 </tr>
 <tr>
     <td>Categoria</td>
     <td>
         <select name="categoria_id" class="form-control">
         <?php foreach($categorias as $categoria) : 
-            $essaEhACategoria = $produto->categoria->getId() == $categoria->getId();
+            $essaEhACategoria = $produto->getCategoria()->getId() == $categoria->getId();
             $selecao = $essaEhACategoria ? "selected='selected'" : "";
             ?>
             <option value="<?=$categoria->getId() ?>" <?=$selecao?>>

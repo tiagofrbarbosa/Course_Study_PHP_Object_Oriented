@@ -10,10 +10,7 @@ verificaUsuario();
 $categoria = new Categoria();
 $categoria->setId(1);
 
-$produto = new Produto();
-$produto->setCategoria($categoria);
-
-$produto->setUsado("");
+$produto = new Produto("", "", "", $categoria, "");
 	$categorias = listaCategorias($conexao);
 ?>
 	<h1>Formulário de cadastro</h1>

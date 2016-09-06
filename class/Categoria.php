@@ -8,7 +8,7 @@
 			return $this->id;
 		}
 
-		public function setId(){
+		public function setId($id){
 			$this->id = $id;
 		}
 
@@ -16,7 +16,7 @@
 			return $this->nome;
 		}
 
-		public function setNome(){
+		public function setNome($nome){
 			$this->nome = $nome;
 		}
 	}
