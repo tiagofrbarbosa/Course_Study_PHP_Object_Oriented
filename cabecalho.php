@@ -1,4 +1,5 @@
 <?php 
+require_once("conecta.php");
 function carregaClasse($nomeDaClasse) {
     require_once("class/".$nomeDaClasse.".php");
     }
